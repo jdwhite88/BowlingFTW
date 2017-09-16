@@ -12,11 +12,19 @@
 </header>
 
 <body>
-	<form action="scoreSheet.php" method="post">
-		Number of Players:<br>
-		<input type="text" name ="numPlayers"><br>
-		<input type="submit" value="Submit">
-	</form>	
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-4"></div>
+			<div class="col-sm-2">
+				<form action="scoreSheet.php" method="post">
+					<h4 style="text-align:center"><b>Number of Players:</b></h4>
+					<input type="text" name ="numPlayers"><br><br>
+					<input type="submit" class = "btn btn-block btn-xs" value="Submit">
+				</form>	
+			</div>
+			<div class="col-sm-6"></div>
+		</div>
+	</div>
 </body>
 
 </html>
