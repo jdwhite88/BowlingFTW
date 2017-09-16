@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
 
 <header>
@@ -11,7 +12,11 @@
 </header>
 
 <body>
-
+	<form action="scoreSheet.php" method="post">
+		Number of Players:<br>
+		<input type="text" name ="numPlayers"><br>
+		<input type="submit" value="Submit">
+	</form>	
 </body>
 
 </html>
