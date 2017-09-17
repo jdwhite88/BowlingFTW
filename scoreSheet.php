@@ -23,6 +23,11 @@ body {
 </style>
 </head>
 
+<p>Player:</p><p id="row">1</p>
+<p>Frame:</p><p id="col">1</p> 
+
+<br><br>
+
 Pins <br>
 <input id="pin" type="number" name="pins">
 <button onclick="updateTable()">Add to Score</button>
@@ -70,26 +75,25 @@ Pins <br>
 
 <script>
 function updateTable() {
+	var rowT = Number(document.getElementById("row").innerHTML);
+	var colT = Number(document.getElementById("col").innerHTML);
 	var pins = document.getElementById("pin");
-	<?php $rowT=(isset($_SESSION['row']))?$_SESSION['row']:''; ?>
-	<?php $colT=(isset($_SESSION['col']))?$_SESSION['col']:''; ?>
+	
 	var numPlayer = <?php echo $numofplayers;?>;
-	var colT = <?php echo $colT;?>;
-	var rowT = <?php echo $rowT;?>;
 	
 	var test = document.getElementById("test");
-	test.innerHTML = colT;
+	test.innerHTML = rowT;
 	
 	var table = document.getElementById("table");
 	var row = table.getElementsByTagName("tr")[rowT];
 	var td = row.getElementsByTagName("td")[colT];
 	
 	td.innerHTML = pins.value;
-	<?php $_SESSION["row"] += 1; ?>
+	document.getElementById("row").innerHTML = rowT + 1;
 	
-	if(<?php echo $_SESSION["row"];?> > numPlayer) {
-		<?php $_SESSION["col"] += 1; ?>
-		<?php $_SESSION["row"] = 1; ?>
+	if(Number(rowT) >= Number(numPlayer)) {
+		document.getElementById("col").innerHTML = colT + 1;
+		document.getElementById("row").innerHTML = "1";
 	}
 }
 </script>
