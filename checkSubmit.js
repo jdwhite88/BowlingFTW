@@ -1,11 +1,11 @@
-function checkSubmitButton(sender) {
-  console.log("Hi!");
-  var n = sender.value;
-  var submitButton = document.getElementById("Submit");
-  if ((typeof n === "number") && (n >== 0) && (n <== 5000)) {
-	   submitButton.removeAttribute("disabled");
-  }
-  else {
-	   submitButton.setAttribute("disabled");
-  }
+function checkSubmitButton() {
+    var n = document.getElementById("numPlayers").value;
+    var isNum = /^\d+$/.test(n);
+    var submitButton = document.getElementById("Submit");
+    if ((isNum && (n >= 0)) && (n <= 5000)) {
+        submitButton.removeAttribute("disabled");
+    }
+    else {
+        submitButton.setAttribute("disabled", true);
+    }
 }
