@@ -11,16 +11,18 @@
 	<link href="style.css" rel="stylesheet">
 </header>
 
+<script type="text/javascript" src="checkSubmit.js"></script>
+
 <body>
 	<div class="container">
 		<div class="row">
 			<div class="col-sm-4"></div>
-			<div class="col-sm-2">
+			<div class="col-sm-4" align="center">
 				<form action="scoreSheet.php" method="get">
-					<h4 style="text-align:center"><b>Number of Players:</b></h4>
-					<input type="text" name="numPlayers" id="numPlayers" onblur="checkSubmitButton()" autofocus><br><br>
-					<input type="submit" class="btn btn-primary btn-xs btn-block" value="Submit" name="Submit" id="Submit" disabled>
-					<script type="text/javascript" src="checkSubmit.js"></script>
+					<h2 style="text-align:center"><b>Number of Players:</b></h2><br>
+					<p style="text-align:center">Please enter a number between 1 and 5000:</p>
+					<input type="text" class="textField" name="numPlayers" id="numPlayers" onblur="checkSubmitButton()" autofocus><br><br>
+					<input type="submit" class="btn btn-primary btn-sm btn-block" value="Submit" name="Submit" id="Submit" disabled>
 				</form>
 			</div>
 		</div>
