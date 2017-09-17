@@ -16,6 +16,7 @@
 table, th, td {
     border: 1px solid black;
 	background-color: white;
+	padding: 15px;
 }
 body {
 	background-color: orange;
@@ -62,10 +63,16 @@ Pins <br>
 		
 			for( $i = 1; $i<=$numofplayers; $i++ ) {
 				echo"<tr>";
-				echo"<td>player$i</td>";
-				echo"<td></td>";
-				for( $u = 1; $u<=10; $u++ ) { 					
-					echo"<td></td>";
+				echo"<th rowspan='2'>player$i</th>";
+				for( $u = 1; $u<=10; $u++ ) { 
+					echo "<td></td>";
+				}
+				echo "<td rowspan='2'></td>";	//for the total
+				echo"</tr>";
+				
+				echo"<tr>";
+				for( $u = 1; $u<=10; $u++ ) { 
+					echo "<td></td>";
 				}
 				echo"</tr>";
 			}
