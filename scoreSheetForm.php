@@ -18,8 +18,9 @@
 			<div class="col-sm-2">
 				<form action="scoreSheet.php" method="get">
 					<h4 style="text-align:center"><b>Number of Players:</b></h4>
-					<input type="text" name ="numPlayers"><br><br>
-					<input type="submit" class = "btn btn-block btn-xs" value="Submit">
+					<input type="text" name="numPlayers" id="numPlayers" onblur="checkSubmitButton(this)" autofocus><br><br>
+					<input type="submit" class="btn btn-primary btn-xs btn-block" value="Submit" id="Submit" disabled>
+					<script type="text/javascript" src="checkSubmit.js"></script>
 				</form>	
 			</div>
 			<div class="col-sm-6"></div>
