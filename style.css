@@ -18,7 +18,14 @@ body {
 .center {
 	padding: 50px;
 }
-	
+
+.textField {
+	margin: auto;
+	width: 50%
+	font-size: 20;
+	text-align: center;
+}
+
 h1 {
 	text-align: center;
 	font-family: fantasy;
