@@ -69,7 +69,7 @@ Pins <br>
 				for( $u = 1; $u<=10; $u++ ) { 
 					echo "<td>0</td>";
 				}
-				echo "<td rowspan='2'></td>";	//for the total
+				echo "<td id='total1' rowspan='2'></td>";	//for the total
 				echo"</tr>";
 				
 				echo"<tr>";
@@ -113,28 +113,29 @@ function updateTable() {
 		document.getElementById("acRow").innerHTML = "1";
 	}
 	//table
-	for( $i = 1; $i<=numPlayer; $i++ ) {
+	
+	for( $i = 0; $i<=numPlayer-1; $i++ ) {
 		var sum = 0;
 		for( $f = 1; $f<=10; $f++ ) {
 		
 			for( $u = 1; $u<=2; $u++ ) { 
 				table = document.getElementById("table");
-				row = table.getElementsByTagName("tr")[u];
-				vtd = row.getElementsByTagName("td")[i-1];
-				sum+=td.innerHTML;
+				row = table.getElementsByTagName("tr")[$u];
+				td = row.getElementsByTagName("td")[$f-1];
+				sum += Number(td.innerHTML);
 			}
 		}
 		table = document.getElementById("table");
-		row = table.getElementsByTagName("tr")[i];
-		td = row.getElementsByTagName("td")[11];
-		
+		row = table.getElementsByTagName("tr")[$i];
+		td = row.getElementsByTagName("td")[10];
+		console.log(td);
 		td.innerHTML = sum;
 	}
 	
 	//test case should update player1's total
-	table = document.getElementById("table");
-	row = table.getElementsByTagName("tr")[2];
-	td = row.getElementsByTagName("td")[8];
+	table = document.getElementById('table');
+	row = table.getElementsByTagName("tr")[1];
+	td = row.getElementsByTagName("td")[10];
 	td.innerHTML = "qjytdutffuy";
 }
 </script>
