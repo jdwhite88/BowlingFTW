@@ -67,14 +67,14 @@ Pins <br>
 				echo"<tr>";
 				echo"<th rowspan='2'>player$i</th>";
 				for( $u = 1; $u<=10; $u++ ) { 
-					echo "<td></td>";
+					echo "<td>0</td>";
 				}
 				echo "<td rowspan='2'></td>";	//for the total
 				echo"</tr>";
 				
 				echo"<tr>";
 				for( $u = 1; $u<=10; $u++ ) { 
-					echo "<td></td>";
+					echo "<td>0</td>";
 				}
 				echo"</tr>";
 			}
@@ -113,6 +113,23 @@ function updateTable() {
 		document.getElementById("col").innerHTML = colT + 1;
 		document.getElementById("row").innerHTML = "1";
 		document.getElementById("acRow").innerHTML = "1";
+	}
+	//table
+	for( $i = 1; $i<=numPlayer; $i++ ) {
+		var sum = 0;
+
+		for( $f = 1; $f<=10; $f++ ) {
+		
+			for( $u = 1; $u<=2; $u++ ) { 
+				var table = document.getElementById("table");
+				var row = table.getElementsByTagName("tr")[u];
+				var td = row.getElementsByTagName("td")[i-1];
+				sum+=td.innerHTML;
+			}
+		}
+		var table = document.getElementById("table");
+		var row = table.getElementsByTagName("tr")[i];
+		var td = row.getElementsByTagName("td")[11];
 	}
 }
 </script>
