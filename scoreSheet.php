@@ -26,6 +26,8 @@ body {
 
 <p>Player:</p><p id="row">1</p>
 <p>Frame:</p><p id="col">1</p> 
+<p>Roll:</p><p id="roll">1</p>
+<p id="acRow" style="display:none">1</p>
 
 <br><br>
 
@@ -82,8 +84,10 @@ Pins <br>
 
 <script>
 function updateTable() {
+	var roll = Number(document.getElementById("roll").innerHTML);
 	var rowT = Number(document.getElementById("row").innerHTML);
 	var colT = Number(document.getElementById("col").innerHTML);
+	var acRow = Number(document.getElementById("acRow").innerHTML);
 	var pins = document.getElementById("pin");
 	
 	var numPlayer = <?php echo $numofplayers;?>;
@@ -92,15 +96,23 @@ function updateTable() {
 	test.innerHTML = rowT;
 	
 	var table = document.getElementById("table");
-	var row = table.getElementsByTagName("tr")[rowT];
-	var td = row.getElementsByTagName("td")[colT];
+	var row = table.getElementsByTagName("tr")[acRow];
+	var td = row.getElementsByTagName("td")[colT-1];
 	
 	td.innerHTML = pins.value;
-	document.getElementById("row").innerHTML = rowT + 1;
 	
-	if(Number(rowT) >= Number(numPlayer)) {
+	document.getElementById("acRow").innerHTML = acRow + 1;
+	
+	document.getElementById("roll").innerHTML = roll + 1;
+	if (Number(roll) >= 2) {
+		document.getElementById("roll").innerHTML = "1";
+		document.getElementById("row").innerHTML = rowT + 1;
+	}
+	
+	if(Number(acRow) >= 2*Number(numPlayer)) {
 		document.getElementById("col").innerHTML = colT + 1;
 		document.getElementById("row").innerHTML = "1";
+		document.getElementById("acRow").innerHTML = "1";
 	}
 }
 </script>
