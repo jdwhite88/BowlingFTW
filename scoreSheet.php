@@ -26,10 +26,14 @@ body {
 Pins <br>
 <input id="pin" type="number" name="pins">
 <button onclick="updateTable()">Add to Score</button>
+
 <br><br>
 
 <?php
 	$numofplayers = $_GET["numPlayers"];
+	session_start();
+	$_SESSION["row"] = 1;
+	$_SESSION["col"] = 1;
 ?>
 
 <body>
@@ -69,10 +73,14 @@ function updateTable() {
 	var pins = document.getElementById("pin");
 	
 	var table = document.getElementById("table");
-	var row = table.getElementsByTagName("tr")[1];
-	var td = row.getElementsByTagName("td")[1];
+	var row = table.getElementsByTagName("tr")[<?php $_SESSION["row"] ?>];
+	var td = row.getElementsByTagName("td")[<?php $_SESSION["col"]?>];
 	
 	td.innerHTML = pins.value;
+	$_SESSION["col] += 1;
+	if($_SESSION["col"] > <?php $numofplayers ?> ) 
+		$_SESSION["row"] += 1;
+		$_SESSION["col"] = 1;
 }
 </script>
 
