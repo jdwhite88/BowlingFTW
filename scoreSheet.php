@@ -18,9 +18,6 @@ table, th, td {
 	background-color: white;
 	padding: 15px;
 }
-body {
-	background-color: orange;
-}
 </style>
 </head>
 
